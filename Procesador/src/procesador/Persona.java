@@ -12,12 +12,12 @@ import java.util.Scanner;
  * @author Ryzen 5
  */
 public class Persona {
-
-    String[] nombre = new String[2];
-    String[] apellido = new String[2];
-    String[] edad = new String[2];
-    String[] telefono = new String[2];
-    String[] direccion = new String[2];
+    int tamañio=5;
+    String[] nombre = new String[tamañio];
+    String[] apellido = new String[tamañio];
+    String[] edad = new String[tamañio];
+    String[] telefono = new String[tamañio];
+    String[] direccion = new String[tamañio];
 
     public int opcion;
     Scanner sc = new Scanner(System.in);
@@ -30,25 +30,21 @@ public class Persona {
 
         System.out.println("--------Bienvenido--------");
         System.out.println("Seleccion una de las siguientes opciones:\n"
-                + "1. Digitar tamaño de arrays\n"
-                + "2. Escribir nuevo Arrays\n"
-                + "3. Leer Arrays");
+                + "1. Escribir nuevo Arrays\n"
+                + "2. Leer Arrays");
         System.out.println("---------------------------");
 
         opcion = sc.nextInt();
         this.eleccion(opcion);
     }
-
-    public void tamaño() {
-
-    }
-
     public void eleccion(int op) {
         switch (op) {
             case 1:
                 System.out.println("Escribe los arreglos");
-                for (int i = 0; i < 2; i++) {
-                    System.out.println((i + 1) + "# Arreglo");
+                System.out.println("----------------------------------------");
+                for (int i = 0; i < tamañio; i++) {
+                    System.out.println((i + 1) + "# Arreglo:\n");
+                    String empezar= sc.nextLine();
                     System.out.print("- Escribir nombre/s: ");
                     nombre[i] = sc.nextLine();
                     System.out.print("- Escribir apellido/s: ");
@@ -59,12 +55,14 @@ public class Persona {
                     telefono[i] = sc.nextLine();
                     System.out.print("- escribir direccion: ");
                     direccion[i] = sc.nextLine();
+                    System.out.println("------------------------------------");
                 }
                 this.menu();
                 break;
             case 2:
-                for (int i = 0; i < 2; i++) {
-                    System.out.println((i + 1) + "# Arreglo");
+                for (int i = 0; i < tamañio; i++) {
+                    System.out.println("------------------------------------");
+                    System.out.println((i + 1) + "# Arreglo:\n");
                     System.out.println("NOMBRE/S: " + nombre[i]);
                     System.out.println("APELLIDO/S: " + apellido[i]);
                     System.out.println("EDAD: " + edad[i]);
